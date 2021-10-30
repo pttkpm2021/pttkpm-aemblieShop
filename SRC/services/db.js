@@ -1,17 +1,11 @@
 const Sequelize = require('sequelize');
 
-connectionString = process.env.DATABASE_URL || 'postgres://postgres:ttth@localhost:5432/aemobile';
-
-//const db = new Sequelize(connectionString, {
-//    dialect: 'postgres',
-//    protocol: 'postgres',
-//    dialectOptions: {
-//        ssl: {
-//            rejectUnauthorized: false
-//        }
-//    }
-//});
-
-const db = new Sequelize(connectionString);
-
+const database = process.env.DB;
+const username = process.env.DB_USER;
+const password = process.env.DB_PASS;
+const host = process.env.DB_HOST;
+const db = new Sequelize( database,username,password, {
+  host: host,
+  dialect:'postgres'
+});
 module.exports = db;

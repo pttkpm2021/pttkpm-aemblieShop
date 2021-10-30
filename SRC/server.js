@@ -3,9 +3,9 @@ const app = express();
 const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+require('dotenv').config()
 const db = require('./services/db');
 const port = process.env.PORT || 3000;
-require('dotenv').config()
 // Session
 app.use(cookieSession({
     name: 'session',
